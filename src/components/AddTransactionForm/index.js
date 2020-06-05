@@ -28,7 +28,7 @@ const AddTransactionForm = ({ addItem }) => {
       addItem(name, parseFloat(value));
       setTransaction({ name: "", value: "" });
     } else {
-      console.log("brak");
+      console.log("not data");
     }
   };
 
@@ -44,7 +44,7 @@ const AddTransactionForm = ({ addItem }) => {
           onChange={handleChange}
         />
         <Input
-          placeholder="value"
+          placeholder="value in euro"
           name="value"
           type="number"
           value={transaction.value}
