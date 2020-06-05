@@ -2,6 +2,11 @@ import React, { useReducer } from "react";
 import { connect } from "react-redux";
 import { addItem } from "../../actions";
 
+import Button from "../Button/Button";
+import Input from "../Input/Input";
+import Paragraph from "../Paragraph/Paragraph";
+import Wrapper from "./Wrapper";
+
 const AddTransactionForm = ({ addItem }) => {
   const [transaction, setTransaction] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
@@ -28,23 +33,26 @@ const AddTransactionForm = ({ addItem }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        placeholder="add description"
-        name="name"
-        type="text"
-        value={transaction.name}
-        onChange={handleChange}
-      />
-      <input
-        placeholder="value"
-        name="value"
-        type="number"
-        value={transaction.value}
-        onChange={handleChange}
-      />
-      <button>Dodaj</button>
-    </form>
+    <Wrapper onSubmit={handleSubmit}>
+      <Paragraph>Add transaction:</Paragraph>
+      <div>
+        <Input
+          placeholder="description"
+          name="name"
+          type="text"
+          value={transaction.name}
+          onChange={handleChange}
+        />
+        <Input
+          placeholder="value"
+          name="value"
+          type="number"
+          value={transaction.value}
+          onChange={handleChange}
+        />
+        <Button>Add</Button>
+      </div>
+    </Wrapper>
   );
 };
 

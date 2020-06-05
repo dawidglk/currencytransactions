@@ -2,7 +2,23 @@ import { ADD_ITEM, REMOVE_ITEM, CHANGE_RATIO } from "../actions";
 
 const initialState = {
   ratio: 4.2,
-  transactions: [],
+  transactions: [
+    {
+      id: 1,
+      name: "Transaction first",
+      value: 12,
+    },
+    {
+      id: 2,
+      name: "Transaction last",
+      value: 52,
+    },
+    {
+      id: 3,
+      name: "Buy car",
+      value: 500,
+    },
+  ],
 };
 
 const rootReducer = (state = initialState, action) => {
